@@ -1,5 +1,7 @@
 # projet-react-mobile
 
+Un projet simple implémentant la fonction forum
+
 19/12
 
 - Register/Login
