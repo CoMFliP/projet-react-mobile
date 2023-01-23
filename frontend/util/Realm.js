@@ -1,5 +1,6 @@
 import Realm from 'realm';
 
+// Renvoie un objet de configuration Realm
 export function getRealmApp() {
   const appId = 'backend-kzgfg';
   const appConfig = {
@@ -9,6 +10,7 @@ export function getRealmApp() {
   return new Realm.App(appConfig);
 }
 
+// L'utilisateur est autorisé au serveur distant
 export async function authUser(email, password) {
   const app = getRealmApp();
   const credentials = Realm.Credentials.emailPassword(email, password);
@@ -16,6 +18,7 @@ export async function authUser(email, password) {
   return user;
 }
 
+// Créer un utilisateur pour un serveur distant
 export function createUser(email, password) {
   const app = getRealmApp();
   return app.emailPasswordAuth.registerUser({email, password});

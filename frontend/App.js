@@ -16,6 +16,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as Realm from './util/Realm';
 
+// Élément de poste d'information
 const Post = ({navigation}) => {
   return (
     <TouchableOpacity
@@ -43,6 +44,7 @@ const Post = ({navigation}) => {
   );
 };
 
+// Liste des postes
 const ListPost = () => {
   return (
     <ScrollView style={{height: '80%', marginVertical: 8}}>
@@ -58,6 +60,7 @@ const ListPost = () => {
   );
 };
 
+// Page de publication avec des informations
 function PostScreen({navigation}) {
   const [loading, setLoading] = useState(false);
   return (
@@ -115,6 +118,7 @@ function PostScreen({navigation}) {
   );
 }
 
+// Page de profil et la modifier
 function ProfileScreen({navigation}) {
   const [username, setUsername] = useState('Username');
   const [email, setEmail] = useState('Email');
@@ -183,7 +187,7 @@ function ProfileScreen({navigation}) {
     </SafeAreaView>
   );
 }
-
+// Page de creér a nouvelle poste
 function NewPostScreen({navigation}) {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
@@ -195,7 +199,13 @@ function NewPostScreen({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 18, marginTop:8}}>
+        <Text
+          style={{
+            textAlign: 'center',
+            fontWeight: 'bold',
+            fontSize: 18,
+            marginTop: 8,
+          }}>
           Create new post
         </Text>
         <View
@@ -318,6 +328,7 @@ function NewPostScreen({navigation}) {
   );
 }
 
+// Page d'accueil
 function HomeScreen({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -330,6 +341,7 @@ function HomeScreen({navigation}) {
 
   const [user, setUser] = useState();
 
+  // Fonction qui effectue l'autorisation de l'utilisateur
   async function loadAuth() {
     setLoading(true);
     try {
@@ -359,7 +371,13 @@ function HomeScreen({navigation}) {
     <SafeAreaView style={styles.container}>
       {isAuth ? (
         <View style={styles.container}>
-          <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 32, marginVertical: 16}}>
+          <Text
+            style={{
+              textAlign: 'center',
+              fontWeight: 'bold',
+              fontSize: 32,
+              marginVertical: 16,
+            }}>
             Projet React Mobile
           </Text>
           <View
@@ -626,6 +644,7 @@ function HomeScreen({navigation}) {
   );
 }
 
+// Page de registres nouvelle account
 function RegisterScreen({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -636,6 +655,7 @@ function RegisterScreen({navigation}) {
 
   const [loading, setLoading] = useState(false);
 
+ // Fonction qui effectue registre de nouveaux utilisateur
   async function loadCreateAuth() {
     if (rePassword === password) {
       setLoading(true);
